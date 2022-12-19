@@ -13,6 +13,9 @@
 	Wend
 
 	Browser("Home").Page("Home").WebElement("quickActionsOriginal_CreateSalesQuotation").Click
+	While Not Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Exist(1)
+		wait(1)
+	Wend
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Set DataTable.Value("quoteType",dtLocalSheet)
 	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Sales Organization").Set "1710"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
