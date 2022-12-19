@@ -4,10 +4,14 @@
 		Reporter.ReportEvent micPass, "Stock is Available", "Stock is available to create Quote"
 	Else
 		Reporter.ReportEvent micFail, "Stock is not available", "Stock is not available to create Quote"
-		'ExitAction
+		ExitAction
 	End If
 	
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
+	While Not Browser("Home").Page("Home").WebElement("quickActionsOriginal_CreateSalesQuotation").Exist(1)
+		wait(1)
+	Wend
+	'Browser("Home").Page("Home").WebElement("quickActionsOriginal_CreateSalesQuotation").WaitProperty, "visible", 30
 	Browser("Home").Page("Home").WebElement("quickActionsOriginal_CreateSalesQuotation").Click
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Set DataTable.Value("quoteType",dtLocalSheet)
 	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Sales Organization").Set "1710"
