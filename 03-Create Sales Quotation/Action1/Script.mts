@@ -70,6 +70,7 @@
 		End  If
 	Next
 	
+	Wait(5)
 	Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Exit").Click
 	Browser("Home").Page("Home").Image("Company Logo").Click
 	

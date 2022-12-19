@@ -1,5 +1,8 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
+	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
+		wait(1)
+	Wend
 	Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Click
 	quoteRowNum = Browser("Home").Page("Home").SAPUITable("Sales Quotations").FindRowByCellContent(1,quoteNumber, 1)
 	Browser("Home").Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
