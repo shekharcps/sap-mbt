@@ -46,9 +46,11 @@
  @@ script infofile_;_ZIP::ssf9.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,2, DataTable.Value("prodItem1",dtLocalSheet) @@ script infofile_;_ZIP::ssf11.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,3, DataTable.Value("prodMaterial1",dtLocalSheet) @@ script infofile_;_ZIP::ssf15.xml_;_
+		pressButton("TAB")
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,5, DataTable.Value("prodQty1",dtLocalSheet) @@ script infofile_;_ZIP::ssf17.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,6, DataTable.Value("prodSU1",dtLocalSheet) @@ script infofile_;_ZIP::ssf19.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,8, DataTable.Value("prodDesc1",dtLocalSheet) @@ script infofile_;_ZIP::ssf22.xml_;_
+		pressButton("TAB")
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,2, DataTable.Value("prodItem2",dtLocalSheet) @@ script infofile_;_ZIP::ssf24.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,3, DataTable.Value("prodMaterial2",dtLocalSheet) @@ script infofile_;_ZIP::ssf26.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,5, DataTable.Value("prodQty2",dtLocalSheet) @@ script infofile_;_ZIP::ssf28.xml_;_
@@ -71,7 +73,11 @@
 	Next
 	
 	Wait(5)
-	Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Exit").Click
+	
+	Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Cancel").Click
+	If Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Exit").Exist(1) Then
+		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Exit").Click
+	End If
 	Browser("Home").Page("Home").Image("Company Logo").Click
 	
 	
