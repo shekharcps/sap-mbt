@@ -86,7 +86,7 @@
 		Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Exit").Click
 	End If
 	Browser("Home").Page("Home").Image("Company Logo").Click
-	
+	Browser("Home").Refresh
 	
 	'Function - Press Button {ENTER} / {TAB}
 	Public Sub pressButton(buttonName)
