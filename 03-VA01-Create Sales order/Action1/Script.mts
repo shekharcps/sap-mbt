@@ -1,5 +1,4 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
-	quoteNumber = "20001942"
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
