@@ -20,6 +20,7 @@
 	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Sales Organization").Set "1710"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
+	wait(2)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
 	
 	For Iterator = 1 To 2
