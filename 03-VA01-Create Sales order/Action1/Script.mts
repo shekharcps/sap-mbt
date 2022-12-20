@@ -1,5 +1,5 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
-	quoteNumber = "20001944"
+	quoteNumber = "20001942"
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
@@ -12,7 +12,7 @@
 	quoteRowNum = Browser("Home").Page("Home").SAPUITable("Sales Quotations").FindRowByCellContent(1,quoteNumber, 1)
 	Browser("Home").Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
 	Browser("Home").Page("Home").SAPUIButton("Create Subsequent Order").Click
-	Browser("Home").Page("Home").SAPUIToolbar("SAPUIToolbar").OpenOverflow ' Create Subsequent Order
+	'Browser("Home").Page("Home").SAPUIToolbar("SAPUIToolbar").OpenOverflow ' Create Subsequent Order
 	Browser("Home").Page("Home").SAPUIMenu("SAPUIMenu").Select "Standard Order (OR)" @@ script infofile_;_ZIP::ssf4.xml_;_
 	Browser("Home").Page("Home").SAPUIButton("OK").Click @@ script infofile_;_ZIP::ssf7.xml_;_
 	While Not Browser("Home").Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Exist(1)
