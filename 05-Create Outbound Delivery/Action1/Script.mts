@@ -4,6 +4,9 @@ Browser("Home").Page("Home").SAPUITile("SAPUITile").Click @@ script infofile_;_Z
 Browser("Home").Page("Home").SAPUIButton("Expand Header").Click @@ script infofile_;_ZIP::ssf5.xml_;_
 wait(5)
 orderNumber = Parameter("orderNumber")
+While Not Browser("Home").Page("Home").SAPUITable("Sales Orders Due for Delivery").RowCount > 1
+	wait(1)
+Wend
 orderRowNum = Browser("Home").Page("Home").SAPUITable("Sales Orders Due for Delivery").FindRowByCellContent(2,orderNumber, 1)
 Browser("Home").Page("Home").SAPUITable("Sales Orders Due for Delivery").SelectRow orderRowNum
 Browser("Home").Page("Home").SAPUIButton("Create Deliveries").Click
