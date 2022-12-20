@@ -1,9 +1,14 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
+	quoteNumber = "20001944"
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
 	Wend
 	Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Click
+	RowsSalesQuotations = Browser("Home").Page("Home").SAPUITable("Sales Quotations").RowCount
+	While Not Browser("Home").Page("Home").SAPUITable("Sales Quotations").RowCount > 1
+		wait(1)
+	Wend
 	quoteRowNum = Browser("Home").Page("Home").SAPUITable("Sales Quotations").FindRowByCellContent(1,quoteNumber, 1)
 	Browser("Home").Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
 	Browser("Home").Page("Home").SAPUIButton("Create Subsequent Order").Click
@@ -26,7 +31,7 @@
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("More").Click @@ script infofile_;_ZIP::ssf14.xml_;_
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPDropDownMenu("Sales A").Select "Goto;Item;Shipping" @@ script infofile_;_ZIP::ssf15.xml_;_
 	wait(5)
-	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Delivery Prior.").Set "1"
+	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Delivery Prior.").Set "01"
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Stor. Loc.").Set "171S"
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf21.xml_;_
 	
@@ -46,6 +51,8 @@
 		Reporter.ReportEvent micPass, "Save Order", "New Order is not created"
 	End  If	
 	
+	wait(5)
 	Browser("Home").Page("Home").SAPFrame("Create Standard Order:").SAPButton("Exit").Click
 	Browser("Home").Page("Home").Image("Company Logo").Click
+	Browser("Home").Refresh
 
