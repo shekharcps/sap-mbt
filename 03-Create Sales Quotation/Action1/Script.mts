@@ -4,7 +4,7 @@
 		Reporter.ReportEvent micPass, "Stock is Available", "Stock is available to create Quote"
 	Else
 		Reporter.ReportEvent micFail, "Stock is not available", "Stock is not available to create Quote"
-		ExitAction
+		'ExitAction
 	End If
 	
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
