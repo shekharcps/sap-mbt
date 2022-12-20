@@ -53,14 +53,14 @@
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,5, DataTable.Value("prodQty1",dtLocalSheet) @@ script infofile_;_ZIP::ssf17.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,6, DataTable.Value("prodSU1",dtLocalSheet) @@ script infofile_;_ZIP::ssf19.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,8, DataTable.Value("prodDesc1",dtLocalSheet) @@ script infofile_;_ZIP::ssf22.xml_;_
-		pressButton("TAB")
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,2, DataTable.Value("prodItem2",dtLocalSheet) @@ script infofile_;_ZIP::ssf24.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,3, DataTable.Value("prodMaterial2",dtLocalSheet) @@ script infofile_;_ZIP::ssf26.xml_;_
+		pressButton("TAB")
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,5, DataTable.Value("prodQty2",dtLocalSheet) @@ script infofile_;_ZIP::ssf28.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,6, DataTable.Value("prodSU2",dtLocalSheet) @@ script infofile_;_ZIP::ssf30.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,8, DataTable.Value("prodDesc2",dtLocalSheet) @@ script infofile_;_ZIP::ssf32.xml_;_
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf33.xml_;_
-		If Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").WebTable("Information").Exist(1) Then
+		If Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").WebTable("Information").Exist(5) Then
 			'Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").WebElement("msg_ChangeInInvoiceDate").Click
 			Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Continue").Click	
 		End If
