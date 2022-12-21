@@ -1,6 +1,11 @@
 ﻿orderNumber = Parameter("orderNumber")
 Browser("Home").Page("Home").WebElement("tabSalesOrders").Click
 Browser("Home").Page("Home").WebElement("manageSalesOrders").Click
+wait(10)
+While Not Browser("Home").Page("Home").SAPUITable("Sales Orders").RowCount > 1
+	wait(1)
+Wend
+wait(10)
 orderRowNum = Browser("Home").Page("Home").SAPUITable("Sales Orders").FindRowByCellContent(1,orderNumber, 1)
 Browser("Home").Page("Home").SAPUITable("Sales Orders").SelectRow orderRowNum
 Browser("Home").Page("Home").SAPUITable("Sales Orders").SelectItemInCell orderRowNum,"Sales Order", orderNumber @@ script infofile_;_ZIP::ssf2.xml_;_
