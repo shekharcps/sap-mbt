@@ -24,9 +24,11 @@
 	'wait(5)
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
-	pressButton("ENTER")
 	'Browser("Home").Page("Home").SAPButton("Continue").Highlight
 	'Browser("Home").Page("Home").SAPButton("Continue").Click
+	
+	AIUtil.SetContext Browser("creationtime:=0")
+	AIUtil("button", "Continue").Click
 	
 	For Iterator = 1 To 1
 		DataTable.SetCurrentRow Iterator
