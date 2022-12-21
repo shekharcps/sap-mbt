@@ -1,5 +1,4 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
-	quoteNumber = "20001951"
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
@@ -37,16 +36,16 @@
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Cust. Ref. Date").Set custReferenceDate
 	reqDeliveryDate = DateAdd("m",1, custReferenceDate)
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Requested Delivery Date").Set reqDeliveryDate
+	wait(5)
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("More").Click @@ script infofile_;_ZIP::ssf14.xml_;_
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPDropDownMenu("Sales A").Select "Goto;Item;Shipping" @@ script infofile_;_ZIP::ssf15.xml_;_
-	wait(5)
+	wait(2)
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Delivery Prior.").Set "01"
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Stor. Loc.").Set "171S"
-	AIUtil.SetContext Browser("creationtime:=0")
-	AIUtil("button", "Save").Click
+'	AIUtil.SetContext Browser("creationtime:=0")
+'	AIUtil("button", "Save").Click
 	
-	'Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf21.xml_;_
-	
+	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf21.xml_;_
 	While Not Browser("Home").Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Exist(1)
 		wait(1)
 	Wend
