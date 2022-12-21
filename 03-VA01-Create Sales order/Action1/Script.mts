@@ -1,4 +1,7 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
+	quoteNumber_2 = Parameter("quoteNumber_2")
+	Reporter.ReportEvent micDone, "quote 1", "Quote number: "&quoteNumber
+	Reporter.ReportEvent micDone, "quote 2", "Quote number: "&quoteNumber_2
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
