@@ -1,4 +1,8 @@
-﻿wait(10)
+﻿wait(5)
+ While Not Browser("Home").Page("Home").SAPUIButton("More groups").GetROProperty("disabled") = "False"
+ 	wait(1)
+ Wend
+ wait(2)
 Browser("Home").Page("Home").SAPUIButton("More groups").Highlight @@ script infofile_;_ZIP::ssf13.xml_;_
 Browser("Home").Page("Home").SAPUIButton("More groups").HoverTap
 Browser("Home").Page("Home").SAPUIButton("More groups").Click @@ script infofile_;_ZIP::ssf14.xml_;_
