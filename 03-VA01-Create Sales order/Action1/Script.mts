@@ -1,7 +1,5 @@
 ﻿	quoteNumber = Parameter("quoteNumber")
-	quoteNumber_2 = Parameter("quoteNumber_2")
-	Reporter.ReportEvent micDone, "quote 1", "Quote number: "&quoteNumber
-	Reporter.ReportEvent micDone, "quote 2", "Quote number: "&quoteNumber_2
+	quoteNumber = "20001951"
 	Browser("Home").Page("Home").Link("My Sales Overview").Click
 	While Not Browser("Home").Page("Home").WebElement("openQuotationsOriginal").Exist(1)
 		wait(1)
@@ -21,6 +19,7 @@
 	
 	Browser("Home").Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
 	Browser("Home").Page("Home").SAPUIButton("Create Subsequent Order").Click
+	wait(5)
 	'Browser("Home").Page("Home").SAPUIToolbar("SAPUIToolbar").OpenOverflow ' Create Subsequent Order
 	Browser("Home").Page("Home").SAPUIMenu("SAPUIMenu").Select "Standard Order (OR)" @@ script infofile_;_ZIP::ssf4.xml_;_
 	Browser("Home").Page("Home").SAPUIButton("OK").Click @@ script infofile_;_ZIP::ssf7.xml_;_
