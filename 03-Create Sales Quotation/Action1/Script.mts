@@ -20,8 +20,8 @@
 	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Sales Organization").Set "1710"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
-	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Click
-	wait(5)
+	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Click
+	'wait(5)
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
 	pressButton("ENTER")
