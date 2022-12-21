@@ -2,7 +2,7 @@
 Browser("Home").Page("Home").SAPUIList("SAPUIList").Select "Outbound Delivery Creation" @@ script infofile_;_ZIP::ssf3.xml_;_
 Browser("Home").Page("Home").SAPUITile("SAPUITile").Click @@ script infofile_;_ZIP::ssf4.xml_;_
 Browser("Home").Page("Home").SAPUIButton("Expand Header").Click @@ script infofile_;_ZIP::ssf5.xml_;_
-wait(5)
+wait(10)
 orderNumber = Parameter("orderNumber")
 While Not Browser("Home").Page("Home").SAPUITable("Sales Orders Due for Delivery").RowCount > 1
 	wait(1)
