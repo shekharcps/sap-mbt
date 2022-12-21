@@ -9,6 +9,13 @@
 		wait(1)
 	Wend
 	quoteRowNum = Browser("Home").Page("Home").SAPUITable("Sales Quotations").FindRowByCellContent(1,quoteNumber, 1)
+	If quoteRowNum >=1 Then
+		Reporter.ReportEvent micDone, "Search Quote Number in Sales Quotations", "Quote number: "&quoteNumber& "is available" 	
+	Else
+		Reporter.ReportEvent micDone, "Search Quote Number in Sales Quotations", "Quote number: "&quoteNumber& "is not available" 
+		ExitAction
+	End If
+	
 	Browser("Home").Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
 	Browser("Home").Page("Home").SAPUIButton("Create Subsequent Order").Click
 	'Browser("Home").Page("Home").SAPUIToolbar("SAPUIToolbar").OpenOverflow ' Create Subsequent Order
