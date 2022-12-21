@@ -26,7 +26,7 @@
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
 	Browser("Home").Page("Home").SAPButton("Continue").Click
 	
-	For Iterator = 1 To 2
+	For Iterator = 1 To 1
 		DataTable.SetCurrentRow Iterator
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Sold-To Party").Set DataTable.Value("soldToParty",dtLocalSheet)
 		pressButton("TAB")		
