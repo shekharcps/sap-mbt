@@ -21,10 +21,11 @@
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Click
-	wait(5)
-	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
-	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
-		
+	wait(2)
+'	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
+'	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
+	Browser("Home").Page("Home").SAPButton("Continue").Click
+	
 	For Iterator = 1 To 2
 		DataTable.SetCurrentRow Iterator
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Sold-To Party").Set DataTable.Value("soldToParty",dtLocalSheet)
