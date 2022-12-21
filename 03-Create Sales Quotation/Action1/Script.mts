@@ -13,7 +13,7 @@
 	Wend
 
 	Browser("Home").Page("Home").WebElement("quickActionsOriginal_CreateSalesQuotation").Click
-	While Not Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Exist(1)
+	While Not Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Exist(5)
 		wait(1)
 	Wend
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Set DataTable.Value("quoteType",dtLocalSheet)
@@ -21,7 +21,7 @@
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Click
-	wait(2)
+	wait(10)
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
 	Browser("Home").Page("Home").SAPButton("Continue").Click
