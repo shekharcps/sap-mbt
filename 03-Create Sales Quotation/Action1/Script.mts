@@ -20,16 +20,10 @@
 	'Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Sales Organization").Set "1710"
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
-	wait(2)
+	wait(5)
+	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
 	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
-	If Browser("Home").Page("Home").SAPFrame("Create Quotations").WebElement("msg_FillAllRequiredFields").Exist(2) Then
-		Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Quotation Type").Set DataTable.Value("quoteType",dtLocalSheet)
-		Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Distribution Channel").Set DataTable.Value("distriChannel",dtLocalSheet)
-		Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPEdit("Division").Set "00"
-		wait(2)
-		Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
-	End  If
-	
+		
 	For Iterator = 1 To 2
 		DataTable.SetCurrentRow Iterator
 		Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Sold-To Party").Set DataTable.Value("soldToParty",dtLocalSheet)
