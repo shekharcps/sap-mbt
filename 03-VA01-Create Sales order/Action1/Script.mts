@@ -29,6 +29,7 @@
 	
 	wait(5)
 	Browser("Home").Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Click
+	wait(2)
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Cust. Reference").Set "4599009999"
 	currentDate =  Month(Now) &"/"&Day(Now)&"/"&Year(Now)
 	custReferenceDate = currentDate
@@ -41,7 +42,10 @@
 	wait(5)
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Delivery Prior.").Set "01"
 	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPEdit("Stor. Loc.").Set "171S"
-	Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf21.xml_;_
+	AIUtil.SetContext Browser("creationtime:=0")
+	AIUtil("button", "Save").Click
+	
+	'Browser("Home").Page("Review Availability Check").SAPFrame("Create Standard Order:").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf21.xml_;_
 	
 	While Not Browser("Home").Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Exist(1)
 		wait(1)
