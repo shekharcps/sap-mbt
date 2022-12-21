@@ -73,7 +73,7 @@
 			msgQuotation = Browser("Home").Page("Home").SAPFrame("Create Quotation: Overview").WebElement("msgQuotation").GetROProperty("innertext")
 			quoteNumber = Split(Split(msgQuotation,"Quotation")(1),"has")(0)
 			DataTable.Value("quoteNum",dtLocalSheet) = Trim(quoteNumber)
-			Parameter("quoteNumber") = quoteNumber
+			Parameter("quoteNumber") =  Trim(quoteNumber)
 		Else
 			Reporter.ReportEvent micPass, "Save Quotation", "New Quotation is not created"
 		End  If
