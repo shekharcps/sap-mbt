@@ -35,7 +35,9 @@ ProductName=Micro Focus UFT One
 Version=2021
 
 [TulipAddins]
+AgGrid=
 AI=
+ASPAjax=
 Database=
 File Content=
 Insight=
@@ -45,6 +47,7 @@ SAPUI5=
 SAPWebExt=
 Windows Applications=
 TEA=
+UIGrid=
 Web=
 WPF=
 XML=
