@@ -24,6 +24,7 @@
 	wait(10)
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Highlight
 '	Browser("Home").Page("Home").SAPFrame("Create Quotations").SAPButton("Continue").Click
+	Browser("Home").Page("Home").SAPButton("Continue").Highlight
 	Browser("Home").Page("Home").SAPButton("Continue").Click
 	
 	For Iterator = 1 To 1
