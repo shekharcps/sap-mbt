@@ -16,15 +16,15 @@ With	Browser("Home")
 		Reporter.ReportEvent micDone, "Search Quote Number in Sales Quotations", "Quote number: "&quoteNumber& "is not available" 
 		ExitAction
 	End If
-
+	
+	wait(20)
 	.Page("Home").SAPUITable("Sales Quotations").SelectRow quoteRowNum
-	wait(10)
 	.Page("Home").SAPUIButton("Create Subsequent Order").Click
 	wait(5)
 	'Browser("Home").Page("Home").SAPUIToolbar("SAPUIToolbar").OpenOverflow ' Create Subsequent Order
 	.Page("Home").SAPUIMenu("SAPUIMenu").Select "Standard Order (OR)" @@ script infofile_;_ZIP::ssf4.xml_;_
 	.Page("Home").SAPUIButton("OK").Click @@ script infofile_;_ZIP::ssf7.xml_;_
-	wait(10)
+	wait(20)
 	While Not .Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Exist(1)
 		wait(1)
 	Wend
@@ -53,7 +53,7 @@ With	Browser("Home")
 		wait(1)
 	Wend
 
-	wait(2)
+	wait(20)
 	.Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Click
 	If .Page("Review Availability Check").SAPFrame("Create Standard Order:").WebElement("msgStandardOrder").Exist(2) Then
 		msgOrderCreation = .Page("Review Availability Check").SAPFrame("Create Standard Order:").WebElement("msgStandardOrder").GetROProperty("innertext")
