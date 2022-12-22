@@ -7,7 +7,11 @@ With Browser("Home")
 	.Page("Home").SAPUIButton("More groups").Highlight @@ script infofile_;_ZIP::ssf13.xml_;_
 	.Page("Home").SAPUIButton("More groups").HoverTap
 	.Page("Home").SAPUIButton("More groups").Click @@ script infofile_;_ZIP::ssf14.xml_;_
-
+	
+	If Not .Page("Home").WebElement("Stock Monitoring").Exist(1) Then
+		Reporter.ReportEvent micFail, "LogIn User", "User is incorrect"
+		ExitAction
+	End If
 	.Page("Home").WebElement("Stock Monitoring").Click
 	.Page("Home").Link("StockMultiple Materials").Click
 	.Page("Home").SAPUIButton("Expand Header").Click
