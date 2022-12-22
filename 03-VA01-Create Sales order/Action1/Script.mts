@@ -25,6 +25,7 @@ With	Browser("Home")
 	.Page("Home").SAPUIMenu("SAPUIMenu").Select "Standard Order (OR)" @@ script infofile_;_ZIP::ssf4.xml_;_
 	.Page("Home").SAPUIButton("OK").Click @@ script infofile_;_ZIP::ssf7.xml_;_
 	wait(20)
+	.Refresh
 	While Not .Page("Review Availability Check").Frame("frameReviewAvailabilityCheck").SAPUIButton("Apply").Exist(1)
 		wait(1)
 	Wend
