@@ -69,5 +69,6 @@ With	Browser("Home")
 	.Page("Home").SAPFrame("Create Standard Order:").SAPButton("Exit").Click
 	.Page("Home").Image("Company Logo").Click
 	.Refresh
+	.Page("Home").Image("Company Logo").Click
 End With
 
