@@ -28,11 +28,27 @@ With Browser("Home")
 
 	For Iterator = 1 To 1
 		DataTable.SetCurrentRow Iterator
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Sold-To Party").Set DataTable.Value("soldToParty",dtLocalSheet)
+		
+		'	Fetch Test Data from DataSheet
+		soldToParty = DataTable.Value("soldToParty",dtLocalSheet)
+		shipToParty = DataTable.Value("shipToParty",dtLocalSheet) 
+		custReference = DataTable.Value("custReference",dtLocalSheet)
+		prodItem1 = DataTable.Value("prodItem1",dtLocalSheet)
+		prodMaterial1 = DataTable.Value("prodMaterial1",dtLocalSheet)
+		prodQty1 = DataTable.Value("prodQty1",dtLocalSheet)
+		prodSU1 = DataTable.Value("prodSU1",dtLocalSheet)
+		prodDesc1 = DataTable.Value("prodDesc1",dtLocalSheet)
+		prodItem2 = DataTable.Value("prodItem2",dtLocalSheet)
+		prodMaterial2 = DataTable.Value("prodMaterial2",dtLocalSheet)
+		prodQty2 = DataTable.Value("prodQty2",dtLocalSheet)
+		prodSU2 = DataTable.Value("prodSU2",dtLocalSheet)
+		prodDesc2 = DataTable.Value("prodDesc2",dtLocalSheet)
+		
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Sold-To Party").Set soldToParty
 		pressButton("TAB")		
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Ship-To Party").Set DataTable.Value("shipToParty",dtLocalSheet) 
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Ship-To Party").Set shipToParty
 		pressButton("TAB")
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Cust. Reference").Set DataTable.Value("custReference",dtLocalSheet)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPEdit("Cust. Reference").Set custReference
 		pressButton("TAB")		
 		currentDate =  Month(Now) &"/"&Day(Now)&"/"&Year(Now)
 		custReferenceDate = DateAdd("d",-1, currentDate)
@@ -49,37 +65,29 @@ With Browser("Home")
 		If .Page("Home").SAPFrame("Create Quotation: Overview").WebTable("Information").Exist(1) Then
 			.Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Continue").Click	
 		End If
-
-		'wait(2)
+		
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 2,2
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,2, DataTable.Value("prodItem1",dtLocalSheet) @@ script infofile_;_ZIP::ssf11.xml_;_
-		'wait(3)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,2, prodItem1
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 2,3
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,3, DataTable.Value("prodMaterial1",dtLocalSheet) @@ script infofile_;_ZIP::ssf15.xml_;_
-		'pressButton("TAB")
-		'wait(5)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,3, prodMaterial1
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 2,5
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,5, DataTable.Value("prodQty1",dtLocalSheet) @@ script infofile_;_ZIP::ssf17.xml_;_
-		'wait(2)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,5, prodQty1
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 2,6
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,6, DataTable.Value("prodSU1",dtLocalSheet) @@ script infofile_;_ZIP::ssf19.xml_;_
-		'wait(5)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,6, prodSU1
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 2,8
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,8, DataTable.Value("prodDesc1",dtLocalSheet) @@ script infofile_;_ZIP::ssf22.xml_;_
-		'wait(2)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 2,8, prodDesc1
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 3,2
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,2, DataTable.Value("prodItem2",dtLocalSheet) @@ script infofile_;_ZIP::ssf24.xml_;_
-		'wait(2)
+		wait(2)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,2, prodItem2
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 3,3
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,3, DataTable.Value("prodMaterial2",dtLocalSheet) @@ script infofile_;_ZIP::ssf26.xml_;_
-		'pressButton("TAB")
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,3, prodMaterial2
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 3,5
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,5, DataTable.Value("prodQty2",dtLocalSheet) @@ script infofile_;_ZIP::ssf28.xml_;_
+		wait(2)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,5, prodQty2
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 3,6
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,6, DataTable.Value("prodSU2",dtLocalSheet) @@ script infofile_;_ZIP::ssf30.xml_;_
-		'wait(2)
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,6, prodSU2
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SelectCell 3,8
-		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,8, DataTable.Value("prodDesc2",dtLocalSheet) @@ script infofile_;_ZIP::ssf32.xml_;_
+		.Page("Home").SAPFrame("Create Quotation: Overview").SAPTable("All Items").SetCellData 3,8, prodDesc2 @@ script infofile_;_ZIP::ssf32.xml_;_
 		.Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Save").Click @@ script infofile_;_ZIP::ssf33.xml_;_
 		If .Page("Home").SAPFrame("Create Quotation: Overview").WebTable("Information").Exist(5) Then
 			.Page("Home").SAPFrame("Create Quotation: Overview").SAPButton("Continue").Click	
@@ -119,3 +127,4 @@ End With
 	   	Set WinShell = Nothing
 	End Sub
 
+'Item Material Req. Segment Order Quantity SU AltItm Item Description Customer Material Item category Higher-Level Item Net Value Curr. WBS Element Profit Center Plant CnTy Amount Crcy Net Price per UoM 
